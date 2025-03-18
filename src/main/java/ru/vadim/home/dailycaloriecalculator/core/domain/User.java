@@ -1,10 +1,31 @@
 package ru.vadim.home.dailycaloriecalculator.core.domain;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Table(name = "user")
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "age", nullable = false)
     private int age;
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    private double weight;
-    private double height;
+    @Column(name = "weight", nullable = false)
+    private int weight;
+    @Column(name = "height", nullable = false)
+    private int height;
+    @Column(name = "goal", nullable = false)
+    private String goal;
 }
