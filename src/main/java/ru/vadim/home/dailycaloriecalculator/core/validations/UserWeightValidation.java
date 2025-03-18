@@ -1,11 +1,16 @@
 package ru.vadim.home.dailycaloriecalculator.core.validations;
 
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import ru.vadim.home.dailycaloriecalculator.dto.UserRequest;
 import ru.vadim.home.dailycaloriecalculator.dto.ValidationError;
 
 import java.util.Optional;
 
-public class UserWeightValidation implements RequestValidation<UserRequest> {
+@Component
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+class UserWeightValidation implements RequestValidation<UserRequest> {
     @Override
     public Optional<ValidationError> validate(UserRequest request) {
         return (request.getWeight() < 20 || request.getWeight() > 300)

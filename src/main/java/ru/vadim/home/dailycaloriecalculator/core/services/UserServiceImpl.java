@@ -2,7 +2,7 @@ package ru.vadim.home.dailycaloriecalculator.core.services;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ru.vadim.home.dailycaloriecalculator.core.domain.User;
 import ru.vadim.home.dailycaloriecalculator.core.repositories.UserRepository;
 import ru.vadim.home.dailycaloriecalculator.core.validations.UserRequestValidator;
@@ -12,7 +12,7 @@ import ru.vadim.home.dailycaloriecalculator.dto.ValidationError;
 
 import java.util.List;
 
-@Component
+@Service
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 class UserServiceImpl implements UserService {
     private final UserRequestValidator requestValidator;
