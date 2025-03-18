@@ -26,12 +26,20 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.hibernate.orm:hibernate-core:6.6.9.Final'
+
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'org.postgresql:postgresql'
+
     annotationProcessor 'org.projectlombok:lombok'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation'org.mockito:mockito-core:5.15.2'
+    testImplementation'org.hamcrest:hamcrest:3.0'
+    testImplementation'uk.org.webcompere:model-assert:1.1.0'
+    testImplementation'com.h2database:h2:2.3.232'
 }
 
 tasks.named('test') {
