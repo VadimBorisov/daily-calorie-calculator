@@ -9,8 +9,7 @@ import ru.vadim.home.dailycaloriecalculator.core.domain.User;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
@@ -27,17 +26,26 @@ class UserRepositoryTest {
     void findByNameShouldReturnUser() {
         Optional<User> user = userRepository.findByName("Viktor");
         assertTrue(user.isPresent());
+        assertEquals("Viktor", user.get().getName());
     }
 
     @Test
     void findByEmailShouldReturnUser() {
         Optional<User> user = userRepository.findByEmail("viktor1@testmail.ru");
         assertTrue(user.isPresent());
+        assertEquals("Viktor", user.get().getName());
     }
 
     @Test
     void findByIdShouldReturnUser() {
         Optional<User> user = userRepository.findById(1L);
         assertTrue(user.isPresent());
+        assertEquals("Viktor", user.get().getName());
+    }
+
+    @Test
+    void shouldNotReturnUserWhenUserNameNotFound() {
+        Optional<User> user = userRepository.findByName("John");
+        assertFalse(user.isPresent());
     }
 }
