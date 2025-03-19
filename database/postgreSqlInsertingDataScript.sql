@@ -7,9 +7,3 @@ insert into dish(name, calories_per_serving, proteins_fats_carbohydrates)
 values ('Hamburger', 500, '30/50/40'),
        ('Pilaf', 438, '20/20/20'),
        ('Vegetable stew', 100, '5/1/20');
-
--- insert into meal(user_id, dish_id)
--- values (1, 1),
---        (1, 2),
---        (2, 2),
---        (3, 3);

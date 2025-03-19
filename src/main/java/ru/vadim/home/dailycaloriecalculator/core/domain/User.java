@@ -37,11 +37,6 @@ public class User {
     @Column(name = "goal", nullable = false)
     private String goal;
 
-    @ManyToMany
-    @JoinTable(
-            name = "meal",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "dish_id")
-    )
-    private List<Dish> dishes;
+    @OneToMany(mappedBy = "user")
+    private List<Meal> meals;
 }

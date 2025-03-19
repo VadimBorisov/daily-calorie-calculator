@@ -4,14 +4,17 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.vadim.home.dailycaloriecalculator.core.domain.Dish;
+import ru.vadim.home.dailycaloriecalculator.core.domain.Meal;
 import ru.vadim.home.dailycaloriecalculator.core.domain.User;
 import ru.vadim.home.dailycaloriecalculator.core.repositories.DishRepository;
+import ru.vadim.home.dailycaloriecalculator.core.repositories.MealRepository;
 import ru.vadim.home.dailycaloriecalculator.core.repositories.UserRepository;
 import ru.vadim.home.dailycaloriecalculator.core.validations.MealRequestValidator;
 import ru.vadim.home.dailycaloriecalculator.dto.MealRequest;
 import ru.vadim.home.dailycaloriecalculator.dto.MealResponse;
 import ru.vadim.home.dailycaloriecalculator.dto.ValidationError;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 class MealServiceImpl implements MealService {
 
+    private final MealRepository mealRepository;
     private final DishRepository dishRepository;
     private final UserRepository userRepository;
     private final MealRequestValidator validator;
@@ -38,16 +42,20 @@ class MealServiceImpl implements MealService {
 
     private void createMeal(MealRequest mealRequest) {
         User user = userRepository.findById(mealRequest.getUserId()).get();
-        List<Dish> dishes = new ArrayList<>();
+
+        Meal meal = new Meal();
+        meal.setDishes(new ArrayList<>(mealRequest.getDishes().size()));
 
         for(String dishName : mealRequest.getDishes()) {
             Dish dish = dishRepository.findByName(dishName).get();
-            dish.getUsers().add(user);
-            dishes.add(dish);
+            meal.getDishes().add(dish);
+            dish.getMeals().add(meal);
         }
 
-        user.setDishes(dishes);
+        meal.setUser(user);
+        user.getMeals().add(meal);
 
+        mealRepository.save(meal);
         userRepository.save(user);
     }
 
@@ -56,6 +64,7 @@ class MealServiceImpl implements MealService {
 
         mealResponse.setDishes(mealRequest.getDishes());
         mealResponse.setUserId(mealRequest.getUserId());
+        mealResponse.setDate(LocalDate.now());
 
         return mealResponse;
     }

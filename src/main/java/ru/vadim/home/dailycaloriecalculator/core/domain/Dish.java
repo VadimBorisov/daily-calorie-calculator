@@ -29,5 +29,5 @@ public class Dish {
     private String proteinsFatsCarbohydrates;
 
     @ManyToMany(mappedBy = "dishes")
-    private List<User> users;
+    private List<Meal> meals;
 }
