@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Table(name = "users")
 @Entity
 @Getter
@@ -16,16 +18,30 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(name = "name", nullable = false)
     private String name;
+
     @Column(name = "age", nullable = false)
     private int age;
+
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+
     @Column(name = "weight", nullable = false)
     private int weight;
+
     @Column(name = "height", nullable = false)
     private int height;
+
     @Column(name = "goal", nullable = false)
     private String goal;
+
+    @ManyToMany
+    @JoinTable(
+            name = "meal",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "dish_id")
+    )
+    private List<Dish> dishes;
 }

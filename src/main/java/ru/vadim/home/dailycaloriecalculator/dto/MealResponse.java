@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -13,7 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 public class MealResponse extends CoreResponse {
     private long userId;
-    private long dishId;
+    private List<String> dishes;
+    private LocalDate date;
 
     public MealResponse(List<ValidationError> errors) {
         super(errors);
