@@ -5,7 +5,8 @@ create table users(
     email varchar(200) unique not null,
     weight int check (weight > 0 and weight < 200) not null,
     height int check (height > 0 and height < 250) not null,
-    goal varchar not null
+    goal varchar not null,
+    daily_bmr int
 );
 
 create unique index ix_user_email on users(email);

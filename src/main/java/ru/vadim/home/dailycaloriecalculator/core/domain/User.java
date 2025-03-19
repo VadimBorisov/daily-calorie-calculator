@@ -1,5 +1,6 @@
 package ru.vadim.home.dailycaloriecalculator.core.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,10 @@ public class User {
     @Column(name = "goal", nullable = false)
     private String goal;
 
+    @Column(name = "daily_bmr")
+    private int dailyBmr;
+
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<Meal> meals;
 }

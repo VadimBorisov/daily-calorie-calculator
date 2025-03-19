@@ -38,6 +38,7 @@ class UserServiceImpl implements UserService {
         user.setWeight(userRequest.getWeight());
         user.setHeight(userRequest.getHeight());
         user.setGoal(userRequest.getGoal());
+        user.setDailyBmr(calculateBMR(userRequest));
 
         userRepository.save(user);
     }

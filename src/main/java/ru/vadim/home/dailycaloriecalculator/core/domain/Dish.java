@@ -1,5 +1,6 @@
 package ru.vadim.home.dailycaloriecalculator.core.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,5 +30,6 @@ public class Dish {
     private String proteinsFatsCarbohydrates;
 
     @ManyToMany(mappedBy = "dishes")
+    @JsonIgnore
     private List<Meal> meals;
 }
