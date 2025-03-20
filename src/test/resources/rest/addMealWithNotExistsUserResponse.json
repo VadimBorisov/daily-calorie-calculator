@@ -1,0 +1,10 @@
+{
+  "errors": [
+    {
+      "errorMessage": "User with id = 6 does not exist!"
+    }
+  ],
+  "userId": 0,
+  "dishes": null,
+  "date": null
+}

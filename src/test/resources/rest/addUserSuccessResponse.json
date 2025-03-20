@@ -1,0 +1,10 @@
+{
+  "errors": null,
+  "name": "Egor",
+  "age": 33,
+  "email": "egor@mail.com",
+  "weight": 100,
+  "height": 187,
+  "goal": "WEIGHT_LOSS",
+  "dailyCalories": 2137
+}

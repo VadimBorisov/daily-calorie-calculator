@@ -1,0 +1,10 @@
+{
+  "errors": [
+    {
+      "errorMessage": "Dish name cannot be empty!"
+    }
+  ],
+  "name": null,
+  "caloriesPerServing": 0,
+  "proteinsFatsCarbohydrates": null
+}

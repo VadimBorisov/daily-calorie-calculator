@@ -1,0 +1,37 @@
+{
+  "errors": null,
+  "user": "Viktor",
+  "caloriesSum": 1038,
+  "meals": [
+    {
+      "id": 1,
+      "date": "2025-03-19",
+      "dishes": [
+        {
+          "id": 1,
+          "name": "Hamburger",
+          "caloriesPerServing": 500,
+          "proteinsFatsCarbohydrates": "30/50/40"
+        },
+        {
+          "id": 2,
+          "name": "Pilaf",
+          "caloriesPerServing": 438,
+          "proteinsFatsCarbohydrates": "20/20/20"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2025-03-19",
+      "dishes": [
+        {
+          "id": 3,
+          "name": "Vegetable stew",
+          "caloriesPerServing": 100,
+          "proteinsFatsCarbohydrates": "5/1/20"
+        }
+      ]
+    }
+  ]
+}

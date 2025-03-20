@@ -1,0 +1,14 @@
+{
+  "errors": [
+    {
+      "errorMessage": "User email already exists!"
+    }
+  ],
+  "name": null,
+  "age": 0,
+  "email": null,
+  "weight": 0,
+  "height": 0,
+  "goal": null,
+  "dailyCalories": 0
+}

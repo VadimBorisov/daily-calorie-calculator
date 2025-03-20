@@ -1,0 +1,10 @@
+{
+  "errors": [
+    {
+      "errorMessage": "Dish Burger not found"
+    }
+  ],
+  "userId": 0,
+  "dishes": null,
+  "date": null
+}
